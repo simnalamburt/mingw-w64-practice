@@ -1,2 +1,2 @@
 all: main.c
-	g++ $< -lopengl32 -lgdi32
+	gcc $< -lopengl32 -lgdi32
