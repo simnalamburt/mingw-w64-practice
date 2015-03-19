@@ -5,16 +5,16 @@
 
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
 
-int WinMain( __in HINSTANCE hInstance, __in_opt HINSTANCE hPrevInstance, __in_opt LPSTR lpCmdLine, __in int nShowCmd )
+int WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nShowCmd )
 {
   MSG msg          = {0};
-  WNDCLASS wc      = {0};
+  WNDCLASSW wc     = {0};
   wc.lpfnWndProc   = WndProc;
   wc.hInstance     = hInstance;
   wc.hbrBackground = (HBRUSH)(COLOR_BACKGROUND);
   wc.lpszClassName = L"oglversionchecksample";
   wc.style = CS_OWNDC;
-  if( !RegisterClass(&wc) )
+  if( !RegisterClassW(&wc) )
     return 1;
   CreateWindowW(wc.lpszClassName,L"openglversioncheck",WS_OVERLAPPEDWINDOW|WS_VISIBLE,0,0,640,480,0,0,hInstance,0);
 
